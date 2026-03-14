@@ -6,7 +6,7 @@ import { FillInBlank } from "./FillInBlank";
 import { ScenarioApplication } from "./ScenarioApplication";
 import { Matching } from "./Matching";
 import { RealWorldChallenge } from "./RealWorldChallenge";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Trophy } from "lucide-react";
 
 interface ExerciseRunnerProps {
   exercises: Exercise[];
@@ -54,40 +54,85 @@ export function ExerciseRunner({ exercises, onComplete }: ExerciseRunnerProps) {
 
   return (
     <div className="mx-auto max-w-2xl">
-      {/* Progress indicator */}
-      <div className="mb-6 flex items-center gap-2">
+      {/* Progress journey indicator */}
+      <div className="mb-6 flex items-center justify-center px-4">
         {exercises.map((_, i) => (
-          <div
-            key={i}
-            className={`h-1.5 flex-1 rounded-full transition-all ${
-              i < currentIndex
-                ? scores[i]
-                  ? "bg-emerald-500"
-                  : "bg-red-400"
-                : i === currentIndex
-                  ? "bg-indigo-500"
-                  : "bg-zinc-200 dark:bg-zinc-700"
-            }`}
-          />
+          <div key={i} className="flex items-center">
+            {/* Circle */}
+            <div
+              className={`relative flex h-9 w-9 items-center justify-center rounded-full border-2 text-xs font-bold transition-all duration-500 ${
+                i < currentIndex
+                  ? scores[i]
+                    ? "border-emerald-500 bg-emerald-500 text-white shadow-lg shadow-emerald-500/30"
+                    : "border-red-400 bg-red-400 text-white shadow-lg shadow-red-400/30"
+                  : i === currentIndex
+                    ? "border-violet-500 bg-violet-500/10 text-violet-600 shadow-lg shadow-violet-500/40 ring-4 ring-violet-500/20 dark:text-violet-400"
+                    : "border-zinc-300 bg-white text-zinc-400 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-500"
+              }`}
+            >
+              {i < currentIndex ? (
+                scores[i] ? (
+                  <span className="text-sm">&#10003;</span>
+                ) : (
+                  <span className="text-sm">&#10005;</span>
+                )
+              ) : (
+                i + 1
+              )}
+              {i === currentIndex && (
+                <span className="absolute inset-0 animate-ping rounded-full border-2 border-violet-500 opacity-30" />
+              )}
+            </div>
+            {/* Connecting line */}
+            {i < exercises.length - 1 && (
+              <div
+                className={`h-0.5 w-6 transition-all duration-500 sm:w-10 ${
+                  i < currentIndex
+                    ? scores[i]
+                      ? "bg-emerald-400"
+                      : "bg-red-300"
+                    : "bg-zinc-200 dark:bg-zinc-700"
+                }`}
+              />
+            )}
+          </div>
         ))}
       </div>
 
-      <div className="mb-2 text-sm text-zinc-500 dark:text-zinc-400">
-        Question {currentIndex + 1} of {exercises.length}
+      {/* Floating question counter badge */}
+      <div className="mb-5 flex justify-center">
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-200 bg-violet-50/80 px-4 py-1.5 text-sm font-semibold text-violet-700 shadow-sm backdrop-blur-sm dark:border-violet-800 dark:bg-violet-950/40 dark:text-violet-300">
+          Question {currentIndex + 1} of {exercises.length}
+        </span>
       </div>
 
       {/* Exercise */}
-      <div key={currentExercise.id}>{renderExercise()}</div>
+      <div key={currentExercise.id} className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+        {renderExercise()}
+      </div>
 
-      {/* Next button */}
+      {/* Next / See Results button */}
       {answered && (
-        <button
-          onClick={handleNext}
-          className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-900 px-6 py-3 font-semibold text-white transition-all hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
-        >
-          {isLast ? "See Results" : "Next Question"}
-          <ArrowRight className="h-4 w-4" />
-        </button>
+        <div className="mt-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
+          {isLast ? (
+            <button
+              onClick={handleNext}
+              className="group flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-violet-600 via-purple-600 to-pink-500 px-8 py-5 text-lg font-bold text-white shadow-xl shadow-violet-500/25 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-violet-500/30 active:scale-[0.98]"
+            >
+              <Trophy className="h-6 w-6 animate-bounce" />
+              See Results
+              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+          ) : (
+            <button
+              onClick={handleNext}
+              className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-violet-600 to-pink-500 px-6 py-4 text-base font-bold text-white shadow-lg shadow-violet-500/20 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl hover:shadow-violet-500/25 active:scale-[0.98]"
+            >
+              Next Question
+              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+          )}
+        </div>
       )}
     </div>
   );

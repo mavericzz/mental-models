@@ -18,30 +18,37 @@ export function RealWorldChallenge({ exercise, onAnswer }: Props) {
   };
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400">
-        <Pencil className="h-5 w-5" />
-        <h3 className="text-lg font-semibold">Real World Challenge</h3>
+    <div className="space-y-5">
+      <div className="flex items-center gap-3">
+        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 shadow-md shadow-orange-500/20">
+          <Pencil className="h-4 w-4 text-white" />
+        </div>
+        <h3 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+          Real World Challenge
+        </h3>
       </div>
 
-      <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-950/30">
-        <p className="font-medium text-zinc-800 dark:text-zinc-200">
+      {/* Challenge card with warm gradient */}
+      <div className="relative overflow-hidden rounded-2xl border border-amber-200/60 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 p-6 shadow-sm dark:border-amber-800/40 dark:from-amber-950/30 dark:via-orange-950/20 dark:to-yellow-950/20">
+        <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-orange-400/20 to-amber-400/10 blur-2xl" />
+        <p className="relative z-10 text-lg font-semibold leading-relaxed text-zinc-800 dark:text-zinc-200">
           {exercise.challenge}
         </p>
       </div>
 
       {exercise.prompts.length > 0 && (
-        <div className="space-y-2">
-          <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
-            Think about:
+        <div className="space-y-3">
+          <p className="text-sm font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+            Think about
           </p>
-          <ul className="space-y-1 pl-4">
+          <ul className="space-y-2.5">
             {exercise.prompts.map((prompt, i) => (
               <li
                 key={i}
-                className="list-disc text-sm text-zinc-600 dark:text-zinc-400"
+                className="flex items-start gap-3 text-sm text-zinc-600 dark:text-zinc-400"
               >
-                {prompt}
+                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-gradient-to-br from-orange-400 to-amber-500" />
+                <span className="leading-relaxed">{prompt}</span>
               </li>
             ))}
           </ul>
@@ -55,34 +62,43 @@ export function RealWorldChallenge({ exercise, onAnswer }: Props) {
             onChange={(e) => setResponse(e.target.value)}
             placeholder="Write your thoughts here..."
             rows={4}
-            className="w-full resize-none rounded-xl border-2 border-zinc-200 bg-white px-4 py-3 text-zinc-900 outline-none transition-colors focus:border-indigo-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+            className="w-full resize-none rounded-2xl border-2 border-zinc-200/80 bg-white/70 px-5 py-4 text-zinc-900 outline-none backdrop-blur-sm transition-all duration-300 placeholder:text-zinc-400 focus:border-orange-400 focus:shadow-lg focus:shadow-orange-500/10 dark:border-zinc-700/80 dark:bg-zinc-900/70 dark:text-zinc-100 dark:placeholder:text-zinc-600 dark:focus:border-orange-500"
           />
           <button
             onClick={handleSubmit}
             disabled={!response.trim()}
-            className="w-full rounded-xl bg-indigo-600 px-6 py-3 font-semibold text-white transition-all hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-orange-600 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/30 disabled:cursor-not-allowed disabled:opacity-40 active:scale-[0.98]"
           >
             Submit Reflection
           </button>
         </>
       ) : (
-        <div className="space-y-3">
-          <div className="rounded-xl bg-emerald-50 p-4 dark:bg-emerald-950/30">
-            <p className="mb-1 font-semibold text-emerald-700 dark:text-emerald-400">
-              Great reflection!
-            </p>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
+        <div className="space-y-4">
+          {/* Success state with sparkles */}
+          <div className="relative overflow-hidden rounded-2xl border border-emerald-200/60 bg-gradient-to-br from-emerald-50 to-green-50 p-5 dark:border-emerald-800/40 dark:from-emerald-950/30 dark:to-green-950/30">
+            <div className="absolute -right-4 -top-4 h-20 w-20 rounded-full bg-emerald-400/10 blur-2xl" />
+            <div className="mb-2 flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-emerald-500" />
+              <p className="font-bold text-emerald-700 dark:text-emerald-400">
+                Great reflection!
+              </p>
+              <Sparkles className="h-4 w-4 text-emerald-400" />
+            </div>
+            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
               There's no single right answer here — the point is to practice applying this model to your own life.
             </p>
           </div>
 
-          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-800/50">
-            <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-zinc-500">
-              <Sparkles className="h-4 w-4" />
-              Example response
+          {/* Example response */}
+          <div className="rounded-2xl border border-zinc-200/60 bg-white/70 p-5 backdrop-blur-sm dark:border-zinc-700/60 dark:bg-zinc-800/50">
+            <div className="mb-3 flex items-center gap-2">
+              <Sparkles className="h-4 w-4 text-orange-500" />
+              <span className="text-sm font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+                Example response
+              </span>
             </div>
-            <p className="text-sm italic text-zinc-600 dark:text-zinc-400">
-              "{exercise.exampleResponse}"
+            <p className="text-sm italic leading-relaxed text-zinc-600 dark:text-zinc-400">
+              &ldquo;{exercise.exampleResponse}&rdquo;
             </p>
           </div>
         </div>

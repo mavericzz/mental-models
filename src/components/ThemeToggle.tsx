@@ -33,11 +33,13 @@ export function ThemeToggle() {
       className={cn(
         "inline-flex items-center justify-center",
         "h-9 w-9 rounded-full",
-        "bg-zinc-100 dark:bg-zinc-800",
+        "bg-zinc-100/80 dark:bg-zinc-800/80",
         "text-zinc-600 dark:text-zinc-400",
-        "hover:bg-zinc-200 dark:hover:bg-zinc-700",
-        "transition-colors duration-200",
-        "cursor-pointer"
+        "hover:bg-violet-100 hover:text-violet-600",
+        "dark:hover:bg-violet-900/30 dark:hover:text-violet-400",
+        "transition-all duration-300",
+        "cursor-pointer",
+        "backdrop-blur-sm"
       )}
       aria-label={themeLabels[theme]}
       title={themeLabels[theme]}
