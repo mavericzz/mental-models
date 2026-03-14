@@ -25,7 +25,7 @@ export function Navbar() {
         "bg-white/70 dark:bg-zinc-950/70",
         "backdrop-blur-xl",
         "border-b border-transparent",
-        "shadow-[0_1px_0_0_rgba(124,58,237,0.15)] dark:shadow-[0_1px_0_0_rgba(167,139,250,0.15)]"
+        "shadow-[0_1px_0_0_rgba(124,58,237,0.15),0_4px_12px_-4px_rgba(124,58,237,0.08)] dark:shadow-[0_1px_0_0_rgba(167,139,250,0.15),0_4px_12px_-4px_rgba(167,139,250,0.08)]"
       )}
     >
       {/* Gradient border line at bottom */}
@@ -38,7 +38,7 @@ export function Navbar() {
           className="group flex items-center gap-2.5 text-lg font-bold text-zinc-900 dark:text-zinc-50 transition-all duration-300"
         >
           <div className="relative">
-            <Brain className="h-7 w-7 text-violet-500 dark:text-violet-400 transition-transform duration-300 group-hover:scale-110 animate-[pulse_3s_ease-in-out_infinite]" />
+            <Brain className="h-7 w-7 text-violet-500 dark:text-violet-400 transition-all duration-500 group-hover:scale-110 group-hover:[transform:rotateY(360deg)] animate-[pulse_3s_ease-in-out_infinite]" />
             <div className="absolute inset-0 h-7 w-7 rounded-full bg-violet-500/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
           <span className="transition-all duration-300 group-hover:gradient-text">

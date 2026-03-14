@@ -117,7 +117,7 @@ export function ExerciseRunner({ exercises, onComplete }: ExerciseRunnerProps) {
           {isLast ? (
             <button
               onClick={handleNext}
-              className="group flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-violet-600 via-purple-600 to-pink-500 px-8 py-5 text-lg font-bold text-white shadow-xl shadow-violet-500/25 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-violet-500/30 active:scale-[0.98]"
+              className="group flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-violet-600 via-purple-600 to-pink-500 px-8 py-5 text-lg font-bold text-white shadow-3d-deep transition-all duration-300 hover:[transform:perspective(800px)_rotateX(2deg)_translateY(-3px)] hover:shadow-3d-hover active:[transform:translateY(2px)]"
             >
               <Trophy className="h-6 w-6 animate-bounce" />
               See Results
@@ -126,7 +126,7 @@ export function ExerciseRunner({ exercises, onComplete }: ExerciseRunnerProps) {
           ) : (
             <button
               onClick={handleNext}
-              className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-violet-600 to-pink-500 px-6 py-4 text-base font-bold text-white shadow-lg shadow-violet-500/20 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl hover:shadow-violet-500/25 active:scale-[0.98]"
+              className="group flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-violet-600 to-pink-500 px-6 py-4 text-base font-bold text-white shadow-3d transition-all duration-300 hover:[transform:perspective(800px)_translateY(-2px)] hover:shadow-3d-hover active:[transform:translateY(2px)]"
             >
               Next Question
               <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />

@@ -30,7 +30,7 @@ export function TrueFalse({ exercise, onAnswer }: Props) {
       </h3>
 
       {/* Quote card */}
-      <div className="relative rounded-2xl border border-zinc-200/60 bg-white/70 p-6 shadow-sm backdrop-blur-sm dark:border-zinc-700/60 dark:bg-zinc-800/50">
+      <div className="relative rounded-2xl border border-zinc-200/60 bg-white/70 p-6 shadow-3d backdrop-blur-sm dark:border-zinc-700/60 dark:bg-zinc-800/50">
         <span className="absolute -top-3 left-4 text-5xl font-serif leading-none text-violet-300 dark:text-violet-600">
           &ldquo;
         </span>
@@ -53,9 +53,9 @@ export function TrueFalse({ exercise, onAnswer }: Props) {
               className={cn(
                 "group flex flex-col items-center justify-center gap-2 rounded-2xl border-2 p-5 font-bold transition-all duration-300",
                 !submitted && selected === value
-                  ? "border-violet-500 bg-violet-50/80 text-violet-700 shadow-md shadow-violet-500/10 dark:bg-violet-950/30 dark:text-violet-300"
+                  ? "border-violet-500 bg-violet-50/80 text-violet-700 shadow-3d dark:bg-violet-950/30 dark:text-violet-300 [transform:perspective(800px)_translateZ(8px)]"
                   : !submitted
-                    ? "border-zinc-200/80 bg-white/70 text-zinc-600 backdrop-blur-sm hover:-translate-y-0.5 hover:border-violet-300 hover:shadow-lg dark:border-zinc-700/80 dark:bg-zinc-900/70 dark:text-zinc-400 dark:hover:border-violet-600"
+                    ? "border-zinc-200/80 bg-white/70 text-zinc-600 backdrop-blur-sm shadow-3d hover:[transform:perspective(800px)_rotateX(3deg)_translateY(-4px)] hover:border-violet-300 hover:shadow-3d-hover dark:border-zinc-700/80 dark:bg-zinc-900/70 dark:text-zinc-400 dark:hover:border-violet-600"
                     : value === exercise.correct
                       ? "border-emerald-500 bg-gradient-to-b from-emerald-50 to-green-50 text-emerald-700 shadow-md dark:from-emerald-950/30 dark:to-green-950/30 dark:text-emerald-400"
                       : selected === value
@@ -82,7 +82,7 @@ export function TrueFalse({ exercise, onAnswer }: Props) {
         <button
           onClick={handleSubmit}
           disabled={selected === null}
-          className="w-full rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 px-6 py-3.5 font-bold text-white shadow-lg shadow-violet-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/30 disabled:cursor-not-allowed disabled:opacity-40 active:scale-[0.98]"
+          className="w-full rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 px-6 py-3.5 font-bold text-white shadow-3d transition-all duration-300 hover:[transform:translateY(-2px)] hover:shadow-3d-hover disabled:cursor-not-allowed disabled:opacity-40 active:[transform:translateY(2px)]"
         >
           Check Answer
         </button>

@@ -46,7 +46,7 @@ export function CategoryPage() {
 
       {/* Hero section */}
       <div className="space-y-3">
-        <h1 className="gradient-text text-4xl font-extrabold tracking-tight sm:text-5xl">
+        <h1 className="gradient-text text-4xl font-extrabold tracking-tight sm:text-5xl" style={{ transform: 'perspective(800px) rotateX(1deg)', transformOrigin: 'center bottom' }}>
           {category.name}
         </h1>
         <p className="max-w-2xl text-lg text-zinc-500 dark:text-zinc-400">
@@ -56,7 +56,7 @@ export function CategoryPage() {
 
       {/* Progress bar */}
       <div className="relative space-y-2">
-        <div className="relative h-3 w-full overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-800/80">
+        <div className="relative h-3 w-full overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-800/80 shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.06)]">
           <div
             className="h-full rounded-full transition-all duration-700 ease-out"
             style={{
@@ -87,7 +87,7 @@ export function CategoryPage() {
       {/* Mastery message */}
       {isComplete && (
         <div
-          className="flex items-center gap-3 rounded-2xl border border-emerald-200 bg-emerald-50/80 p-4 backdrop-blur-sm dark:border-emerald-800 dark:bg-emerald-950/30"
+          className="flex items-center gap-3 rounded-2xl border border-emerald-200 bg-emerald-50/80 p-4 backdrop-blur-sm shadow-3d dark:border-emerald-800 dark:bg-emerald-950/30"
           style={{ animation: "fadeIn 0.5s ease-out forwards" }}
         >
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-green-500 shadow-md">
@@ -109,7 +109,7 @@ export function CategoryPage() {
         {models.map((model, index) => (
           <div
             key={model.id}
-            className="animate-fade-in opacity-0"
+            className="animate-tilt-in opacity-0"
             style={{
               animationDelay: `${index * 80}ms`,
               animationFillMode: "forwards",

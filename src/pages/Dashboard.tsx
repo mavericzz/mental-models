@@ -39,13 +39,13 @@ export default function Dashboard() {
   return (
     <div className="space-y-8">
       {/* Hero Section */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700 p-6 sm:p-8 text-white">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700 p-6 sm:p-8 text-white shadow-3d-deep preserve-3d">
         {/* Decorative background elements */}
-        <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
-        <div className="absolute -left-6 bottom-0 h-28 w-28 rounded-full bg-pink-500/20 blur-2xl" />
+        <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" style={{ transform: 'translateZ(40px)' }} />
+        <div className="absolute -left-6 bottom-0 h-28 w-28 rounded-full bg-pink-500/20 blur-2xl" style={{ transform: 'translateZ(20px)' }} />
         <div className="absolute right-1/3 top-1/2 h-20 w-20 rounded-full bg-orange-400/10 blur-xl" />
 
-        <div className="relative z-10">
+        <div className="relative z-10" style={{ transform: 'translateZ(60px)' }}>
           <div className="flex items-start justify-between">
             <div>
               <p className="text-sm font-medium uppercase tracking-widest text-violet-200">
@@ -78,7 +78,7 @@ export default function Dashboard() {
       {dailyModel && (
         <Link
           to={`/learn/${dailyModel.id}`}
-          className="group relative block overflow-hidden rounded-2xl bg-gradient-to-br from-violet-600 via-indigo-600 to-purple-700 p-6 text-white shadow-xl shadow-violet-500/20 transition-all duration-300 hover:shadow-2xl hover:shadow-violet-500/30 hover:-translate-y-1"
+          className="group relative block overflow-hidden rounded-2xl bg-gradient-to-br from-violet-600 via-indigo-600 to-purple-700 p-6 text-white shadow-3d-deep transition-all duration-500 hover:shadow-3d-hover hover:[transform:perspective(1000px)_rotateX(2deg)_translateY(-4px)_translateZ(10px)] preserve-3d"
         >
           {/* Sparkle decorations */}
           <div className="absolute right-6 top-4 animate-pulse text-yellow-300/60">
@@ -128,7 +128,7 @@ export default function Dashboard() {
 
       {/* Stats Row */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="group rounded-2xl border border-white/10 bg-white/60 p-4 text-center backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:bg-zinc-900/60 dark:border-zinc-700/50">
+        <div className="group rounded-2xl border border-white/10 bg-white/60 p-4 text-center backdrop-blur-md shadow-3d transition-all duration-300 hover:[transform:perspective(800px)_translateY(-6px)_rotateX(3deg)] hover:shadow-3d-hover dark:bg-zinc-900/60 dark:border-zinc-700/50 preserve-3d">
           <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-violet-100 dark:bg-violet-500/20">
             <BookOpen className="h-5 w-5 text-violet-600 dark:text-violet-400" />
           </div>
@@ -137,7 +137,7 @@ export default function Dashboard() {
           </div>
           <div className="mt-1 text-xs font-medium text-zinc-500 dark:text-zinc-400">Models Learned</div>
         </div>
-        <div className="group rounded-2xl border border-white/10 bg-white/60 p-4 text-center backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:bg-zinc-900/60 dark:border-zinc-700/50">
+        <div className="group rounded-2xl border border-white/10 bg-white/60 p-4 text-center backdrop-blur-md shadow-3d transition-all duration-300 hover:[transform:perspective(800px)_translateY(-6px)_rotateX(3deg)] hover:shadow-3d-hover dark:bg-zinc-900/60 dark:border-zinc-700/50 preserve-3d">
           <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-500/20">
             <Target className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
           </div>
@@ -146,7 +146,7 @@ export default function Dashboard() {
           </div>
           <div className="mt-1 text-xs font-medium text-zinc-500 dark:text-zinc-400">Quiz Average</div>
         </div>
-        <div className="group rounded-2xl border border-white/10 bg-white/60 p-4 text-center backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:bg-zinc-900/60 dark:border-zinc-700/50">
+        <div className="group rounded-2xl border border-white/10 bg-white/60 p-4 text-center backdrop-blur-md shadow-3d transition-all duration-300 hover:[transform:perspective(800px)_translateY(-6px)_rotateX(3deg)] hover:shadow-3d-hover dark:bg-zinc-900/60 dark:border-zinc-700/50 preserve-3d">
           <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-500/20">
             <Trophy className="h-5 w-5 text-amber-600 dark:text-amber-400" />
           </div>
@@ -155,7 +155,7 @@ export default function Dashboard() {
           </div>
           <div className="mt-1 text-xs font-medium text-zinc-500 dark:text-zinc-400">Badges Earned</div>
         </div>
-        <div className="group rounded-2xl border border-white/10 bg-white/60 p-4 text-center backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:bg-zinc-900/60 dark:border-zinc-700/50">
+        <div className="group rounded-2xl border border-white/10 bg-white/60 p-4 text-center backdrop-blur-md shadow-3d transition-all duration-300 hover:[transform:perspective(800px)_translateY(-6px)_rotateX(3deg)] hover:shadow-3d-hover dark:bg-zinc-900/60 dark:border-zinc-700/50 preserve-3d">
           <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-orange-100 dark:bg-orange-500/20">
             <Flame className="h-5 w-5 text-orange-600 dark:text-orange-400" />
           </div>
@@ -198,7 +198,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-2 gap-4">
         <Link
           to="/explore"
-          className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 p-5 text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl hover:shadow-violet-500/25"
+          className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 p-5 text-white shadow-3d transition-all duration-500 hover:[transform:perspective(800px)_rotateX(3deg)_translateY(-6px)] hover:shadow-3d-hover preserve-3d"
         >
           {/* Decorative pattern */}
           <div className="absolute -right-4 -bottom-4 h-20 w-20 rounded-full border-4 border-white/10" />
@@ -218,7 +218,7 @@ export default function Dashboard() {
         </Link>
         <Link
           to="/profile"
-          className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 p-5 text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl hover:shadow-orange-500/25"
+          className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 p-5 text-white shadow-3d transition-all duration-500 hover:[transform:perspective(800px)_rotateX(3deg)_translateY(-6px)] hover:shadow-3d-hover preserve-3d"
         >
           {/* Decorative pattern */}
           <div className="absolute -right-4 -bottom-4 h-20 w-20 rounded-full border-4 border-white/10" />

@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import type { Category } from "../types/models";
 import { cn } from "../lib/utils";
+import { useTilt3D } from "../hooks/useTilt3D";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   DollarSign, Heart, Users, Briefcase, Brain, Handshake,
@@ -54,12 +55,14 @@ export function CategoryCard({ category, completedCount, locked = false }: Categ
   const Icon = iconMap[category.icon] || Brain;
   const colors = colorMap[category.color] || colorMap.indigo;
   const progressPercent = Math.round((completedCount / category.modelCount) * 100);
+  const tiltRef = useTilt3D<HTMLDivElement>({ maxTilt: 10, scale: 1.03 });
 
   const cardContent = (
     <div
+      ref={!locked ? tiltRef : undefined}
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-white/70 p-6 backdrop-blur-md transition-all duration-300 dark:bg-zinc-900/70",
-        "hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl",
+        "group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-white/70 p-6 backdrop-blur-md transition-all duration-300 dark:bg-zinc-900/70 shadow-3d",
+        !locked && "hover:shadow-3d-hover",
         colors.border,
         locked ? "opacity-60 grayscale" : `hover:${colors.glow}`
       )}
@@ -81,9 +84,10 @@ export function CategoryCard({ category, completedCount, locked = false }: Categ
         {/* Large gradient circular icon */}
         <div
           className={cn(
-            "flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br shadow-lg transition-transform duration-300 group-hover:scale-110",
+            "flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br shadow-lg transition-all duration-300 group-hover:scale-110",
             colors.iconBg
           )}
+          style={{ transform: 'translateZ(40px)' }}
         >
           <Icon className="h-7 w-7 text-white" />
         </div>
@@ -96,7 +100,7 @@ export function CategoryCard({ category, completedCount, locked = false }: Categ
       </div>
 
       {/* Name + description */}
-      <h3 className="text-lg font-bold tracking-wide text-zinc-900 dark:text-zinc-100">
+      <h3 className="text-lg font-bold tracking-wide text-zinc-900 dark:text-zinc-100" style={{ transform: 'translateZ(25px)' }}>
         {category.name}
       </h3>
       <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">

@@ -28,7 +28,7 @@ export function XPBar({ totalXP, className, showLabel = true }: XPBarProps) {
           </span>
         </div>
       )}
-      <div className="relative h-3 w-full overflow-hidden rounded-full bg-zinc-200/80 dark:bg-zinc-800">
+      <div className="relative h-3 w-full overflow-hidden rounded-full bg-zinc-200/80 dark:bg-zinc-800 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)]">
         <div
           className="h-full rounded-full bg-gradient-to-r from-violet-600 via-purple-500 to-fuchsia-500 transition-all duration-1000 ease-out"
           style={{ width: `${Math.max(progress, 2)}%` }}

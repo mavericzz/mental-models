@@ -56,7 +56,7 @@ export function ModelCard({ model, isCompleted, isLocked, index }: ModelCardProp
       to={`/learn/${model.id}`}
       className={cn(
         "group relative flex items-center gap-4 overflow-hidden rounded-2xl border p-4 transition-all duration-300",
-        "hover:translate-x-1 hover:shadow-lg hover:shadow-violet-500/5 hover:border-violet-300 dark:hover:border-violet-700 dark:hover:shadow-violet-500/10",
+        "hover:translate-x-1 hover:shadow-3d-hover hover:border-violet-300 dark:hover:border-violet-700 hover:[transform:perspective(800px)_translateX(4px)_rotateY(-1deg)]",
         isCompleted
           ? "border-emerald-200/60 bg-white dark:border-emerald-800/40 dark:bg-zinc-900/60"
           : "border-zinc-200/60 bg-white dark:border-zinc-800/60 dark:bg-zinc-900/60"
@@ -85,7 +85,7 @@ export function ModelCard({ model, isCompleted, isLocked, index }: ModelCardProp
       </div>
 
       {/* Emoji with circular gradient background */}
-      <div className="relative shrink-0">
+      <div className="relative shrink-0" style={{ transform: 'translateZ(20px)' }}>
         <div
           className={cn(
             "flex h-12 w-12 items-center justify-center rounded-full text-xl shadow-sm",

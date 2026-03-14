@@ -114,7 +114,7 @@ export function LearnPage() {
 
       {/* Hero header */}
       <div className="text-center">
-        <span className="text-6xl drop-shadow-lg">{model.emoji}</span>
+        <span className="text-6xl drop-shadow-lg float-3d inline-block">{model.emoji}</span>
         <h1 className="mt-3 text-3xl font-bold gradient-text">
           {model.title}
         </h1>
@@ -139,9 +139,9 @@ export function LearnPage() {
                 <div
                   className={`flex h-10 w-10 items-center justify-center rounded-full transition-all duration-500 ${
                     isCompleted
-                      ? "bg-gradient-to-br from-violet-500 to-purple-600 text-white shadow-lg"
+                      ? "bg-gradient-to-br from-violet-500 to-purple-600 text-white shadow-3d [transform:translateZ(10px)]"
                       : isCurrent
-                        ? "bg-gradient-to-br from-violet-500 to-purple-600 text-white shadow-lg animate-pulse-ring"
+                        ? "bg-gradient-to-br from-violet-500 to-purple-600 text-white shadow-3d animate-pulse-ring [transform:translateZ(15px)_scale(1.1)]"
                         : "border-2 border-zinc-300 bg-white text-zinc-400 dark:border-zinc-600 dark:bg-zinc-800"
                   }`}
                 >
@@ -190,7 +190,7 @@ export function LearnPage() {
         <div className="mx-auto max-w-lg space-y-8 animate-fade-in">
           {/* Celebration header */}
           <div className="text-center space-y-3">
-            <span className="text-6xl block animate-bounce-gentle">🎉</span>
+            <span className="text-6xl block float-3d">🎉</span>
             <h2 className="text-4xl font-bold gradient-text">
               Lesson Complete!
             </h2>
@@ -204,7 +204,7 @@ export function LearnPage() {
           </div>
 
           {/* XP Breakdown - glass morphism card */}
-          <div className="rounded-2xl glass-card dark:glass-card-dark p-6 shadow-lg animate-slide-up">
+          <div className="rounded-2xl glass-card dark:glass-card-dark p-6 shadow-3d-deep animate-tilt-in">
             <h3 className="mb-5 text-lg font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
               <Zap className="h-5 w-5 text-violet-500" />
               XP Earned
@@ -260,7 +260,7 @@ export function LearnPage() {
             </Link>
             <Link
               to="/"
-              className="flex-1 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 py-3.5 text-center font-semibold text-white shadow-lg shadow-violet-500/25 transition-all hover:shadow-xl hover:shadow-violet-500/30 hover:scale-[1.02] active:scale-[0.98]"
+              className="flex-1 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 py-3.5 text-center font-semibold text-white shadow-3d transition-all duration-300 hover:shadow-3d-hover hover:[transform:translateY(-2px)] active:[transform:translateY(2px)]"
             >
               Dashboard
               <ArrowRight className="h-4 w-4" />

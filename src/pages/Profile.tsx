@@ -111,11 +111,11 @@ export function Profile() {
   return (
     <div className="space-y-8 pb-8">
       {/* Profile Header */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 p-6 sm:p-8 shadow-2xl shadow-violet-500/20">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 p-6 sm:p-8 shadow-3d-deep preserve-3d">
         {/* Background decoration */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-white/10 blur-2xl" />
-          <div className="absolute -bottom-8 -left-8 h-36 w-36 rounded-full bg-orange-400/20 blur-2xl" />
+          <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-white/10 blur-2xl" style={{ transform: 'translateZ(30px)' }} />
+          <div className="absolute -bottom-8 -left-8 h-36 w-36 rounded-full bg-orange-400/20 blur-2xl" style={{ transform: 'translateZ(15px)' }} />
           <div className="absolute right-1/4 top-1/3 h-24 w-24 rounded-full bg-pink-400/10 blur-xl" />
         </div>
 
@@ -165,7 +165,7 @@ export function Profile() {
 
           {/* XP & Progress Info */}
           <div className="flex-1 text-center sm:text-left">
-            <div className="flex items-baseline justify-center gap-1 sm:justify-start">
+            <div className="flex items-baseline justify-center gap-1 sm:justify-start" style={{ transform: 'translateZ(50px)' }}>
               <span className="text-4xl font-black tracking-tight text-white sm:text-5xl">
                 {progress.totalXP.toLocaleString()}
               </span>
@@ -225,7 +225,7 @@ export function Profile() {
         ].map(({ icon: Icon, value, label, gradient, bg }) => (
           <div
             key={label}
-            className="group rounded-2xl border border-white/10 bg-white/60 p-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-violet-500/5 dark:border-white/5 dark:bg-zinc-900/60 sm:p-5"
+            className="group rounded-2xl border border-white/10 bg-white/60 p-4 backdrop-blur-xl shadow-3d transition-all duration-500 hover:[transform:perspective(800px)_rotateX(4deg)_translateY(-8px)] hover:shadow-3d-hover dark:border-white/5 dark:bg-zinc-900/60 sm:p-5 preserve-3d"
           >
             <div className={cn("mb-3 inline-flex rounded-xl p-2.5", bg)}>
               <div className={cn("rounded-lg bg-gradient-to-br p-2", gradient)}>
@@ -243,7 +243,7 @@ export function Profile() {
       </div>
 
       {/* Streak Calendar */}
-      <div className="rounded-2xl border border-white/10 bg-white/60 p-6 backdrop-blur-xl dark:border-white/5 dark:bg-zinc-900/60">
+      <div className="rounded-2xl border border-white/10 bg-white/60 p-6 backdrop-blur-xl shadow-3d dark:border-white/5 dark:bg-zinc-900/60">
         <div className="mb-5 flex items-center gap-2">
           <div className="rounded-lg bg-gradient-to-br from-orange-500 to-amber-400 p-1.5">
             <Flame className="h-4 w-4 text-white" />
@@ -290,7 +290,7 @@ export function Profile() {
       </div>
 
       {/* Badges */}
-      <div className="rounded-2xl border border-white/10 bg-white/60 p-6 backdrop-blur-xl dark:border-white/5 dark:bg-zinc-900/60">
+      <div className="rounded-2xl border border-white/10 bg-white/60 p-6 backdrop-blur-xl shadow-3d dark:border-white/5 dark:bg-zinc-900/60">
         <div className="mb-2 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="rounded-lg bg-gradient-to-br from-violet-500 to-purple-400 p-1.5">
@@ -327,7 +327,7 @@ export function Profile() {
                 className={cn(
                   "group relative flex flex-col items-center rounded-xl p-3 text-center transition-all duration-300",
                   earned
-                    ? "bg-gradient-to-br from-violet-100 to-purple-100 hover:shadow-lg hover:shadow-violet-500/15 hover:-translate-y-0.5 dark:from-violet-950/40 dark:to-purple-950/40"
+                    ? "bg-gradient-to-br from-violet-100 to-purple-100 hover:shadow-3d-hover hover:[transform:perspective(600px)_rotateX(5deg)_translateY(-4px)] dark:from-violet-950/40 dark:to-purple-950/40"
                     : "bg-zinc-50 dark:bg-zinc-800/40"
                 )}
                 title={badge.description}

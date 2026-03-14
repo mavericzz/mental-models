@@ -36,7 +36,7 @@ export default function Explore() {
       {/* Dramatic Page Header */}
       <div className="relative text-center">
         <div className="absolute inset-0 -top-8 -z-10 mx-auto h-40 w-3/4 rounded-full bg-violet-500/10 blur-3xl dark:bg-violet-500/5" />
-        <h1 className="gradient-text text-4xl font-extrabold tracking-tight sm:text-5xl">
+        <h1 className="gradient-text text-4xl font-extrabold tracking-tight sm:text-5xl" style={{ transform: 'perspective(800px) rotateX(2deg)', transformOrigin: 'center bottom' }}>
           Explore Mental Models
         </h1>
         <p className="mx-auto mt-3 max-w-lg text-lg text-zinc-500 dark:text-zinc-400">
@@ -72,7 +72,7 @@ export default function Explore() {
       </div>
 
       {/* Overall Progress */}
-      <div className="relative mx-auto max-w-2xl overflow-hidden rounded-2xl border border-zinc-200/60 bg-white/60 p-6 backdrop-blur-lg dark:border-zinc-700/40 dark:bg-zinc-900/60">
+      <div className="relative mx-auto max-w-2xl overflow-hidden rounded-2xl border border-zinc-200/60 bg-white/60 p-6 backdrop-blur-lg shadow-3d dark:border-zinc-700/40 dark:bg-zinc-900/60">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-violet-50/50 to-orange-50/30 dark:from-violet-950/20 dark:to-orange-950/10" />
         <div className="mb-3 flex items-center justify-between">
           <span className="flex items-center gap-2 text-sm font-semibold text-zinc-700 dark:text-zinc-300">
@@ -106,11 +106,11 @@ export default function Explore() {
       </div>
 
       {/* Category Grid — masonry-like with varied spans */}
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 perspective-container">
         {filteredCategories.map((category, i) => (
           <div
             key={category.id}
-            className={`animate-[fadeSlideUp_0.5s_ease_both] ${
+            className={`animate-tilt-in ${
               i % 5 === 0 ? "sm:col-span-2 lg:col-span-1" : ""
             }`}
             style={{ animationDelay: `${i * 60}ms` }}

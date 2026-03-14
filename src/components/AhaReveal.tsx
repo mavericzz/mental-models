@@ -22,7 +22,7 @@ export function AhaReveal({ eli5, onComplete }: AhaRevealProps) {
   return (
     <div className="mx-auto max-w-2xl space-y-6">
       {/* Hook - gradient card with decorative sparkles */}
-      <div className="relative animate-fade-in overflow-hidden rounded-2xl bg-gradient-to-br from-violet-600 via-purple-600 to-violet-700 p-8 shadow-xl shadow-violet-500/20">
+      <div className="relative animate-tilt-in overflow-hidden rounded-2xl bg-gradient-to-br from-violet-600 via-purple-600 to-violet-700 p-8 shadow-3d-deep preserve-3d">
         {/* Decorative sparkle shapes */}
         <div className="absolute top-4 right-6 h-3 w-3 rotate-45 rounded-sm bg-white/20 animate-sparkle" />
         <div className="absolute top-8 right-16 h-2 w-2 rotate-45 rounded-sm bg-white/15 animate-sparkle" style={{ animationDelay: "0.5s" }} />
@@ -36,7 +36,7 @@ export function AhaReveal({ eli5, onComplete }: AhaRevealProps) {
       </div>
 
       {/* Analogy - clean card with lightbulb accent */}
-      <div className="animate-fade-in rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+      <div className="animate-tilt-in rounded-2xl border border-zinc-200 bg-white p-6 shadow-3d dark:border-zinc-800 dark:bg-zinc-900">
         <div className="mb-3 flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-900/30">
             <Lightbulb className="h-4 w-4 text-amber-500" />
@@ -63,10 +63,10 @@ export function AhaReveal({ eli5, onComplete }: AhaRevealProps) {
               : "pointer-events-none h-0 translate-y-4 overflow-hidden opacity-0"
           )}
         >
-          <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+          <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-3d dark:border-zinc-800 dark:bg-zinc-900">
             <div className="flex items-start gap-4">
               {/* Numbered gradient circle badge */}
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-purple-600 text-sm font-bold text-white shadow-md">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-purple-600 text-sm font-bold text-white shadow-3d" style={{ transform: 'translateZ(30px)' }}>
                 {i + 1}
               </div>
               <div>
@@ -101,7 +101,7 @@ export function AhaReveal({ eli5, onComplete }: AhaRevealProps) {
           {/* AHA MOMENT - the dopamine hit */}
           <div className="relative">
             {/* Glow effect behind card */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-violet-500 via-pink-500 to-orange-500 opacity-20 blur-2xl" />
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-violet-500 via-pink-500 to-orange-500 opacity-25 blur-2xl" style={{ transform: 'translateZ(-20px)' }} />
 
             {/* Animated gradient border card */}
             <div className="relative rounded-2xl bg-gradient-to-r from-violet-500 via-pink-500 to-orange-500 p-[2px] animate-gradient-rotate shadow-2xl">
@@ -119,7 +119,7 @@ export function AhaReveal({ eli5, onComplete }: AhaRevealProps) {
                 {/* Content */}
                 <div className="relative">
                   <div className="mb-4 flex items-center gap-2.5">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg shadow-amber-500/30 animate-pulse-glow">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 shadow-3d animate-pulse-glow float-3d">
                       <Lightbulb className="h-5 w-5 text-white" />
                     </div>
                     <span className="text-sm font-black uppercase tracking-widest gradient-text">
@@ -153,7 +153,7 @@ export function AhaReveal({ eli5, onComplete }: AhaRevealProps) {
           <div className="flex justify-center pt-2">
             <button
               onClick={onComplete}
-              className="group flex items-center gap-3 rounded-full bg-gradient-to-r from-violet-600 via-purple-600 to-pink-500 px-10 py-4 text-lg font-bold text-white shadow-xl shadow-violet-500/30 transition-all hover:shadow-2xl hover:shadow-violet-500/40 hover:scale-[1.03] active:scale-[0.98] animate-pulse-glow"
+              className="group flex items-center gap-3 rounded-full bg-gradient-to-r from-violet-600 via-purple-600 to-pink-500 px-10 py-4 text-lg font-bold text-white shadow-3d-deep transition-all duration-300 hover:shadow-3d-hover hover:[transform:translateY(-3px)_translateZ(10px)] active:[transform:translateY(2px)_translateZ(-5px)] animate-pulse-glow"
             >
               Got it! Start the Quiz
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />

@@ -29,7 +29,7 @@ export function FillInBlank({ exercise, onAnswer }: Props) {
       </h3>
 
       {/* Sentence display card */}
-      <div className="rounded-2xl border border-zinc-200/60 bg-white/70 p-6 shadow-sm backdrop-blur-sm dark:border-zinc-700/60 dark:bg-zinc-800/50">
+      <div className="rounded-2xl border border-zinc-200/60 bg-white/70 p-6 shadow-3d backdrop-blur-sm dark:border-zinc-700/60 dark:bg-zinc-800/50">
         <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
           {exercise.textBefore}
           <span
@@ -72,7 +72,7 @@ export function FillInBlank({ exercise, onAnswer }: Props) {
           <button
             onClick={handleSubmit}
             disabled={!answer.trim()}
-            className="w-full rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 px-6 py-3.5 font-bold text-white shadow-lg shadow-violet-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/30 disabled:cursor-not-allowed disabled:opacity-40 active:scale-[0.98]"
+            className="w-full rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 px-6 py-3.5 font-bold text-white shadow-3d transition-all duration-300 hover:[transform:translateY(-2px)] hover:shadow-3d-hover disabled:cursor-not-allowed disabled:opacity-40 active:[transform:translateY(2px)]"
           >
             Check Answer
           </button>

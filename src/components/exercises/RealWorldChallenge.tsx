@@ -29,7 +29,7 @@ export function RealWorldChallenge({ exercise, onAnswer }: Props) {
       </div>
 
       {/* Challenge card with warm gradient */}
-      <div className="relative overflow-hidden rounded-2xl border border-amber-200/60 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 p-6 shadow-sm dark:border-amber-800/40 dark:from-amber-950/30 dark:via-orange-950/20 dark:to-yellow-950/20">
+      <div className="relative overflow-hidden rounded-2xl border border-amber-200/60 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 p-6 shadow-3d dark:border-amber-800/40 dark:from-amber-950/30 dark:via-orange-950/20 dark:to-yellow-950/20">
         <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-gradient-to-br from-orange-400/20 to-amber-400/10 blur-2xl" />
         <p className="relative z-10 text-lg font-semibold leading-relaxed text-zinc-800 dark:text-zinc-200">
           {exercise.challenge}
@@ -67,7 +67,7 @@ export function RealWorldChallenge({ exercise, onAnswer }: Props) {
           <button
             onClick={handleSubmit}
             disabled={!response.trim()}
-            className="w-full rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-orange-600 px-6 py-3.5 font-bold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/30 disabled:cursor-not-allowed disabled:opacity-40 active:scale-[0.98]"
+            className="w-full rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-orange-600 px-6 py-3.5 font-bold text-white shadow-3d transition-all duration-300 hover:[transform:translateY(-2px)] hover:shadow-3d-hover disabled:cursor-not-allowed disabled:opacity-40 active:[transform:translateY(2px)]"
           >
             Submit Reflection
           </button>

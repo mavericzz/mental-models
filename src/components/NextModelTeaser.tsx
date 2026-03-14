@@ -8,7 +8,7 @@ interface NextModelTeaserProps {
 
 export function NextModelTeaser({ model }: NextModelTeaserProps) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-violet-200/50 bg-gradient-to-br from-violet-50 via-white to-fuchsia-50/30 p-6 transition-all hover:shadow-lg dark:border-violet-800/30 dark:from-violet-950/30 dark:via-zinc-900 dark:to-fuchsia-950/20">
+    <div className="group relative overflow-hidden rounded-2xl border border-violet-200/50 bg-gradient-to-br from-violet-50 via-white to-fuchsia-50/30 p-6 shadow-3d transition-all duration-500 hover:shadow-3d-hover hover:[transform:perspective(800px)_rotateX(2deg)_translateY(-4px)] dark:border-violet-800/30 dark:from-violet-950/30 dark:via-zinc-900 dark:to-fuchsia-950/20">
       {/* Decorative glow */}
       <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-violet-500/10 blur-2xl transition-all group-hover:bg-violet-500/20" />
 
@@ -37,7 +37,7 @@ export function NextModelTeaser({ model }: NextModelTeaserProps) {
 
           <Link
             to={`/learn/${model.id}`}
-            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-violet-500/25 transition-all hover:shadow-xl hover:shadow-violet-500/30 active:scale-95"
+            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 px-5 py-2.5 text-sm font-bold text-white shadow-3d transition-all duration-300 hover:[transform:translateY(-2px)] hover:shadow-3d-hover active:[transform:translateY(2px)]"
           >
             Start
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

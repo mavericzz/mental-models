@@ -38,9 +38,9 @@ export function MultipleChoice({ exercise, onAnswer }: Props) {
             className={cn(
               "group flex w-full items-center gap-4 rounded-2xl border-2 p-4 text-left transition-all duration-300",
               !submitted && selected === i
-                ? "border-violet-500 bg-violet-50/80 shadow-md shadow-violet-500/10 dark:bg-violet-950/30"
+                ? "border-violet-500 bg-violet-50/80 shadow-3d dark:bg-violet-950/30 [transform:perspective(800px)_translateZ(8px)]"
                 : !submitted
-                  ? "border-zinc-200/80 bg-white/70 backdrop-blur-sm hover:-translate-y-0.5 hover:border-violet-300 hover:shadow-lg hover:shadow-violet-500/5 dark:border-zinc-700/80 dark:bg-zinc-900/70 dark:hover:border-violet-600"
+                  ? "border-zinc-200/80 bg-white/70 backdrop-blur-sm shadow-3d hover:[transform:perspective(800px)_rotateX(2deg)_translateY(-3px)] hover:border-violet-300 hover:shadow-3d-hover dark:border-zinc-700/80 dark:bg-zinc-900/70 dark:hover:border-violet-600"
                   : i === exercise.correctIndex
                     ? "border-emerald-500 bg-gradient-to-r from-emerald-50 to-green-50 shadow-md shadow-emerald-500/10 dark:from-emerald-950/30 dark:to-green-950/30"
                     : selected === i
@@ -79,7 +79,7 @@ export function MultipleChoice({ exercise, onAnswer }: Props) {
         <button
           onClick={handleSubmit}
           disabled={selected === null}
-          className="w-full rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 px-6 py-3.5 font-bold text-white shadow-lg shadow-violet-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/30 disabled:cursor-not-allowed disabled:opacity-40 active:scale-[0.98]"
+          className="w-full rounded-2xl bg-gradient-to-r from-violet-600 to-purple-600 px-6 py-3.5 font-bold text-white shadow-3d transition-all duration-300 hover:[transform:translateY(-2px)] hover:shadow-3d-hover disabled:cursor-not-allowed disabled:opacity-40 active:[transform:translateY(2px)]"
         >
           Check Answer
         </button>
